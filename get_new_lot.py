@@ -23,6 +23,8 @@ def get_delta():
     if content:
         old = int(content)
         delta = new - old + 1
+        with open('old_lot_number.py', 'w') as file:
+            file.write(str(new))
     else:
         with open('old_lot_number.py', 'w') as file:
             file.write(str(new))
