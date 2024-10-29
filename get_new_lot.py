@@ -46,11 +46,11 @@ def get_ex_urls():
     urls_list = []
     for i in ex_urls:
         urls_list.append("https://exarid.uzex.uz"+i['href'])
-    return urls_list
+    return urls_list, delta
 
 
 def data_mining():
-    urls_list = get_ex_urls()
+    urls_list, delta = get_ex_urls()
     key_words = ["ТРЕНАЖЁР", "пневматический", "тир", "СТРЕЛКОВЫЙ ТРЕНАЖЁР", "ПКСТ", "ПКСТнинг", "Ўқ отиш", "тренажёрини", "Ўқ", "отиш", "тренажерный"]
     mining_url = []
     status = False
@@ -72,4 +72,5 @@ def data_mining():
             if status is True:
                 mining_url.append(url)
                 break
-    return mining_url
+
+    return mining_url, delta

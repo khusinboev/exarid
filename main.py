@@ -14,12 +14,17 @@ dp = Dispatcher(bot)
 async def send_periodic_message():
     print("ffuccc")
     while True:
-        link_list = data_mining()
+        link_list, delta = data_mining()
         if link_list:
             text = 'Lotlar linki: \n\n'
             for i in link_list:
                 text += i + "\n"
+            text += f"\nOxirgi 2 soat ichida {delta} ta yangi lot qo'shildi"
             await bot.send_message(USER_ID, text)
+        else:
+            await bot.send_message(USER_ID, text=f"Oxirgi 2 soat ichida {delta} yangi lot qo'shildi ammo ular bizga "
+                                                 f"tegishli emas. Xatolik tufayli bizga tegishlisini ko'rmay qolgan "
+                                                 f"bo'lishim mumkin, o'zingiz tekshirib Adminga xabar qiling, raxmat")
         await asyncio.sleep(7200)
 
 
