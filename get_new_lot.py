@@ -76,6 +76,7 @@ async def data_mining():
                             break
                     if status is True:
                         mining_url.append(url)
+                        status = False
                         break
 
     return mining_url, delta
