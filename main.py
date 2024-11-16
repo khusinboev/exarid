@@ -12,10 +12,9 @@ dp = Dispatcher(bot)
 
 
 async def send_periodic_message():
-    print("ffuccc")
     while True:
-        link_list, delta = data_mining()
-        if link_list:
+        link_list, delta = await data_mining()
+        if delta != 0:
             text = 'Lotlar linki: \n\n'
             for i in link_list:
                 text += i + "\n"
@@ -25,14 +24,15 @@ async def send_periodic_message():
             await bot.send_message(USER_ID, text=f"Oxirgi 2 soat ichida {delta} yangi lot qo'shildi ammo ular bizga "
                                                  f"tegishli emas. Xatolik tufayli bizga tegishlisini ko'rmay qolgan "
                                                  f"bo'lishim mumkin, o'zingiz tekshirib Adminga xabar qiling, raxmat")
-        await asyncio.sleep(7200)
+
+        await asyncio.sleep(2*60*60)
 
 
 @dp.message_handler(commands='start_the_lott')
 async def start_command(message: types.Message):
+    await message.reply("Bot ishga tushdi va har 2 soatda xabar yuboradi.")
     if str(message.from_user.id) == "7131777042":
         await send_periodic_message()
-    await message.reply("Bot ishga tushdi va har 2 soatda xabar yuboradi.")
 
 
 @dp.message_handler(commands='start')
