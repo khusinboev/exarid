@@ -24,8 +24,7 @@ async def send_periodic_message():
             await bot.send_message(USER_ID, text=f"Oxirgi 2 soat ichida {delta} yangi lot qo'shildi ammo ular bizga "
                                                  f"tegishli emas. Xatolik tufayli bizga tegishlisini ko'rmay qolgan "
                                                  f"bo'lishim mumkin, o'zingiz tekshirib Adminga xabar qiling, raxmat")
-
-        await asyncio.sleep(2*60*60)
+        await asyncio.sleep(60*60)
 
 
 @dp.message_handler(commands='start_the_lott')
