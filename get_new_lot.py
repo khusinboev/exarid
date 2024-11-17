@@ -54,8 +54,8 @@ async def get_ex_urls():
 async def data_mining():
     urls_list, delta = await get_ex_urls()
     mining_url = []
+    time.sleep(5)
     if delta != 0:
-        time.sleep(5)
         key_words = ["ТРЕНАЖЁР", "пневматический", "тир", "СТРЕЛКОВЫЙ ТРЕНАЖЁР", "ПКСТ", "ПКСТнинг", "Ўқ отиш", "тренажёрини", "тренажерный"]
         status = False
         for url in urls_list:
