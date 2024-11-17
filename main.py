@@ -4,7 +4,7 @@ from aiogram.utils import executor
 
 from get_new_lot import data_mining
 
-API_TOKEN = '7558537384:AAEXdJ8FlS8Pd5h6CKKq_xs1AgfwNysv8oA'  # O'zingizning bot tokeningizni kiriting
+API_TOKEN = '7558537384:AAGHYoZ7-Y1rbJd_H4b92AdEjZ7dIeITk0Q'  # O'zingizning bot tokeningizni kiriting
 USER_ID = '7131777042'  # Foydalanuvchi ID sini kiriting
 
 bot = Bot(token=API_TOKEN)
