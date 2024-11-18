@@ -1,7 +1,10 @@
 import time
+import urllib3
 
 import requests, lxml
 from bs4 import BeautifulSoup
+
+urllib3.disable_warnings()
 
 
 async def get_last():
