@@ -14,7 +14,11 @@ async def get_last():
         'X-Requested-With': 'XMLHttpRequest',
     }
     last_url = "https://exarid.uzex.uz/ru/bestoffer#"
-    res = requests.get(url=last_url, headers=headers, verify=False).text
+    try:
+        res = requests.get(url=last_url, headers=headers, verify=False).text
+    except:
+        time.sleep(10)
+        res = requests.get(url=last_url, headers=headers, verify=False).text
     soup = BeautifulSoup(res, features='lxml')
     last_lot = soup.find('a', class_="table_link").text.strip()
     return last_lot
@@ -46,7 +50,11 @@ async def get_ex_urls():
     delta = await get_delta()
     if delta != 0:
         url = f"http://exarid.uzex.uz/ru/ajax/filter?page=1&PageSize={delta}&Type=BestOffer"
-        res = requests.get(url=url, headers=headers, verify=False).text
+        try:
+            res = requests.get(url=url, headers=headers, verify=False).text
+        except:
+            time.sleep(10)
+            res = requests.get(url=url, headers=headers, verify=False).text
         soup = BeautifulSoup(res, features='lxml')
         ex_urls = soup.find_all('a', class_="table_link", href=True)
         for i in ex_urls:
@@ -67,7 +75,11 @@ async def data_mining():
                 'Accept': 'application/json, text/javascript, */*; q=0.01',
                 'X-Requested-With': 'XMLHttpRequest'
             }
-            res = requests.get(url=url, headers=headers, verify=False).text
+            try:
+                res = requests.get(url=url, headers=headers, verify=False).text
+            except:
+                time.sleep(10)
+                res = requests.get(url=url, headers=headers, verify=False).text
             soup = BeautifulSoup(res, features='lxml')
             blocks = soup.find_all("div", class_="full_block content")
             for block in blocks:
